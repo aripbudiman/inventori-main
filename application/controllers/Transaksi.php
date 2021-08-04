@@ -89,6 +89,7 @@ class Transaksi extends CI_Controller
   function view_keluar()
   {
 
+    
     $data['tr_keluar'] = $this->MTransaksi->transaksi_keluar();
 
 
@@ -119,11 +120,13 @@ class Transaksi extends CI_Controller
     $tanggal  = $this->input->post('tanggal');
     $idbarang  = $this->input->post('id_barang');
     $jumlahkeluar  = $this->input->post('jumlah_keluar');
+    $petugasID = $this->input->post('pk_petugas_id');
 
     $data = array(
       'tanggal' => $tanggal,
       'id_barang' => $idbarang,
-      'jumlah_keluar' => $jumlahkeluar
+      'jumlah_keluar' => $jumlahkeluar,
+      'petugas_id' => $petugasID
     );
 
     $this->MTransaksi->input_data($data, 'tbl_transaksi_keluar');
