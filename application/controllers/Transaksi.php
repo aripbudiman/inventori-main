@@ -126,7 +126,7 @@ class Transaksi extends CI_Controller
       'tanggal' => $tanggal,
       'id_barang' => $idbarang,
       'jumlah_keluar' => $jumlahkeluar,
-      'petugas_id' => $petugasID
+      'id_petugas' => $petugasID
     );
 
     $this->MTransaksi->input_data($data, 'tbl_transaksi_keluar');

@@ -5,8 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
@@ -23,7 +22,7 @@
 				<!-- Circle Buttons -->
 				<div class="card shadow mb-12">
 					<div class="card-body">
-						<form method="post" action="<?=base_url('Laporan-masuk-cari-keluar')?>" autocomplete="off">
+						<form method="post" action="<?= base_url('Laporan-masuk-cari-keluar') ?>" autocomplete="off">
 							<label for="dari">Dari</label>
 							<input type="date" name="dari" id="dari">
 							<label for="sampai">Sampai</label>
@@ -35,58 +34,61 @@
 			</div>
 		</div>
 	</div>
-  <!-- laporan -->
-  <br><br>
-  
+	<!-- laporan -->
+	<br><br>
+
 	<div class="container-fluid">
-  <div class="card shadow mb-12">
-	<div class="card-body">
-		<div class="table-responsive">
-			<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-				<thead>
-					<tr>
-						<th>No</th>
-						<th>Tanggal</th>
-						<th>Nama Barang</th>
-						<th>Jumlah Keluar</th>
-					</tr>
-				</thead>
+		<div class="card shadow mb-12">
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>Tanggal</th>
+								<th>Nama Barang</th>
+								<th>Jumlah Keluar</th>
+								<th>Nama Petugas</th>
+							</tr>
+						</thead>
 
-				<tbody>
-					<?php $no = 1; if (!empty($caribarang)) : ?>
-					<?php foreach ($caribarang as $row) : 
-								// $stok = $row->stokbarang;
-								// $keluar = $row->keluar;
-								// $jumlah = $stok-$keluar;
-							?>
-					<tr>
-						<td><?php echo $no++; ?></td>
-						<td><?php echo $row->tanggal ?></td>
-						<td><?php echo $row->nama_barang ?></td>
-						<td><?php echo $row->jumlah_keluar .' '. $row->satuan_barang ?></td>
-					</tr>
-					<?php endforeach ?>
-					<?php else: ?>
-					<tr>
-						<td colspan="9" align="center">Tidak Ada Data</td>
-					</tr>
-					<?php endif ?>
-				</tbody>
-        
-			</table>
+						<tbody>
+							<?php $no = 1;
+							if (!empty($caribarang)) : ?>
+								<?php foreach ($caribarang as $row) :
+									// $stok = $row->stokbarang;
+									// $keluar = $row->keluar;
+									// $jumlah = $stok-$keluar;
+								?>
+									<tr>
+										<td><?php echo $no++; ?></td>
+										<td><?php echo $row->tanggal ?></td>
+										<td><?php echo $row->nama_barang ?></td>
+										<td><?php echo $row->jumlah_keluar . ' ' . $row->satuan_barang ?></td>
+										<td><?php echo $row->nama_petugas ?></td>
+									</tr>
+								<?php endforeach ?>
+							<?php else : ?>
+								<tr>
+									<td colspan="9" align="center">Tidak Ada Data</td>
+								</tr>
+							<?php endif ?>
+						</tbody>
+
+					</table>
+				</div>
+				<br>
+				<a href="<?php
+							$dari = $this->input->post('dari');
+							$sampai = $this->input->post('sampai');
+
+							echo base_url('Export-pdf-laporan-keluar/') . $dari . '/' . $sampai ?>">
+					<input type="submit" value="Export PDF" class="btn btn-primary"><br>
+				</a>
+			</div>
 		</div>
-    <br>
-    <a href="<?php
-      $dari = $this->input->post('dari');
-      $sampai = $this->input->post('sampai');
-
-    echo base_url('Export-pdf-laporan-keluar/').$dari.'/'.$sampai ?>">
-      <input type="submit" value="Export PDF" class="btn btn-primary"><br>
-    </a>
 	</div>
-  </div>
-  </div>
-  <!-- end laporan -->
+	<!-- end laporan -->
 </body>
 
 </html>
