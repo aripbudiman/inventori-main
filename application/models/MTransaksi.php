@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
  *
  */
@@ -22,58 +23,62 @@ class MTransaksi extends CI_Model
 
 
 
-    function get_master_toobject($tablename,$value,$display,$orderby,$objtype,$defaultvalue,$condition,$columns='*',$encrypt=false) {
-        $enc_value='';
-        if ($condition==''){
-	       $query=$this->db->query("SELECT $columns FROM ". $tablename ." order by ". $orderby);   
-        }else{ 
-	       $query=$this->db->query("SELECT $columns FROM ". $tablename ." where ". $condition ." order by ". $orderby);
+    function get_master_toobject($tablename, $value, $display, $orderby, $objtype, $defaultvalue, $condition, $columns = '*', $encrypt = false)
+    {
+        $enc_value = '';
+        if ($condition == '') {
+            $query = $this->db->query("SELECT $columns FROM " . $tablename . " order by " . $orderby);
+        } else {
+            $query = $this->db->query("SELECT $columns FROM " . $tablename . " where " . $condition . " order by " . $orderby);
         }
-	    if($query->num_rows()>0)
-	    {
-            $fetch_data=$query->result();
-            $data = array();  
-            foreach($fetch_data as $row)  
-            {                  
-                if ($encrypt==false){
-                    $enc_value=$row->$value;
-                }else{
-                    $enc_value=encrypt($row->$value);
+        if ($query->num_rows() > 0) {
+            $fetch_data = $query->result();
+            $data = array();
+            foreach ($fetch_data as $row) {
+                if ($encrypt == false) {
+                    $enc_value = $row->$value;
+                } else {
+                    $enc_value = encrypt($row->$value);
                 }
-                if ($objtype=="Select"){
-                    if ($defaultvalue!="" && $row->$value==$defaultvalue){                        
-                        $data[] = "<option value=". $enc_value ." selected>".$row->$display."</option>";          
-                    }else{
-                        $data[] = "<option value=". $enc_value .">".$row->$display."</option>";      
-                    }                    
-                }                
-            }  
+                if ($objtype == "Select") {
+                    if ($defaultvalue != "" && $row->$value == $defaultvalue) {
+                        $data[] = "<option value=" . $enc_value . " selected>" . $row->$display . "</option>";
+                    } else {
+                        $data[] = "<option value=" . $enc_value . ">" . $row->$display . "</option>";
+                    }
+                }
+            }
             return $data;
-        }
-	    else
-        {
+        } else {
             return FALSE;
-        }	    	
+        }
+    }
+
+    function getPetugas()
+    {
+        $petugas = $this->db->query('SELECT * FROM tbl_petugas ORDER BY nama_petugas ASC');
+
+        return $petugas->result();
     }
 
     function generatenobarang()
     {
         $query = $this->db->query("SELECT generate_barang_no() as barangid");
         return $query->result_array();
-        
     }
 
-    
-    function input_data($data,$table){
-        $this->db->insert($table,$data);
+
+    function input_data($data, $table)
+    {
+        $this->db->insert($table, $data);
     }
 
-  
-    function hapus_data($where,$table){
-        $aksi = $this->db->where($where);
-        $aksi = $this->db->delete($table);
-  
-    }    
+
+    function hapus_data($pk_transaksi_keluar_id)
+    {
+        $this->db->where($pk_transaksi_keluar_id, $pk_transaksi_keluar_id);
+        $this->db->delete('tbl_transaksi_keluar');
+    }
 
 
     function accept_data($id)
@@ -83,7 +88,6 @@ class MTransaksi extends CI_Model
         SET status = 1
         WHERE pk_transaksi_keluar_id = $id");
         return $accept;
-        
     }
 
     function reject_data($id)
@@ -93,9 +97,5 @@ class MTransaksi extends CI_Model
         SET status = 2
         WHERE pk_transaksi_keluar_id = $id");
         return $reject;
-        
     }
-    
-
-
 }

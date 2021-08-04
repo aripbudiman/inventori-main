@@ -12,16 +12,18 @@
             <i class="fa fa-bars"></i>
           </button>
           </form>
-          
+
           <?php
-                date_default_timezone_set('Asia/Jakarta');
-                echo "<font color='red' face='arial bold'>";
-                echo date('d-M-Y H:i:s');
-                echo " WIB";
-                echo "</font>";
-              ?>
+          date_default_timezone_set('Asia/Jakarta');
+          echo "<font color='red' face='arial bold'>";
+          echo date('d-M-Y H:i:s');
+          echo " WIB";
+          echo "</font>";
+          ?>
           <div class="topbar-divider d-none d-sm-block"></div>
-          <marquee><font size="4" face="Copperplate Gothic Bold">Sistem Inventori Gudang Toko <i>Dunia Percetakan</i></font></marquee>
+          <marquee>
+            <font size="4" face="Copperplate Gothic Bold">Welcome Back To myStok Of Name <i>Cabang Bandung Barat</i></font>
+          </marquee>
 
           <ul class="navbar-nav ml-auto">
 
@@ -44,7 +46,7 @@
                 </form>
               </div>
             </li>
-            
+
             <div class="topbar-divider d-none d-sm-block"></div>
 
             <li class="nav-item dropdown no-arrow">

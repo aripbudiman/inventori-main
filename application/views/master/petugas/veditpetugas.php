@@ -16,11 +16,11 @@
 			<!-- Circle Buttons -->
 			<div class="card shadow mb-12">
 				<div class="card-body">
-					<form method="post" action="<?=base_url('Satuan-update')?>" autocomplete="off">
-                        <input type="hidden" name="satuan_id" value="<?php echo $satuan->pk_petugas_id ?>">
+					<form method="post" action="<?= base_url('Petugas-update') ?>" autocomplete="off">
+						<input type="hidden" name="petugas_id" value="<?php echo $petugas->pk_petugas_id ?>">
 						<div class="form-group col-lg-12">
 							<label>Petugas *</label>
-							<input type="text" name="satuan" class="form-control" value="<?php echo $petugas->nama_petugas;?>">
+							<input type="text" name="petugas" class="form-control" value="<?php echo $petugas->nama_petugas; ?>">
 						</div>
 
 						<div class="form-group col-lg-6">

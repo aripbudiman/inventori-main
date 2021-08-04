@@ -16,10 +16,10 @@
 			<!-- Circle Buttons -->
 			<div class="card shadow mb-12">
 				<div class="card-body">
-					<form method="post" action="<?=base_url('Satuan-save')?>" autocomplete="off">
+					<form method="post" action="<?= base_url('Petugas-save') ?>" autocomplete="off">
 						<div class="form-group col-lg-12">
 							<label>Nama Petugas *</label>
-							<input type="text" name="satuan" class="form-control" name="" id="">
+							<input type="text" name="petugas" class="form-control" name="" id="">
 						</div>
 
 						<div class="form-group col-lg-6">
@@ -46,5 +46,4 @@
 	$('.js-single').select2({
 		placeholder: 'Select an option'
 	});
-
 </script>

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
@@ -33,6 +33,14 @@ $route['Satuan-add'] = "Satuan/add_view";
 $route['Satuan-update/(:any)'] = "Satuan/update_view/$1";
 $route['Satuan-save'] = "Satuan/save_data";
 $route['Satuan-update'] = "Satuan/update_save";
+//Petugas
+
+$route['Petugas-view'] = "Petugas";
+$route['Petugas-delete/(:any)'] = "Petugas/delete/$1";
+$route['Petugas-add'] = "Petugas/add_view";
+$route['Petugas-update/(:any)'] = "Petugas/update_view/$1";
+$route['Petugas-save'] = "Petugas/save_data";
+$route['Petugas-update'] = "Petugas/update_save";
 
 
 //Transaksi masuk
@@ -47,11 +55,12 @@ $route['Transaksi-masuk-delete/(:any)'] = "Transaksi/delete/$1";
 $route['Transaksi-keluar-view'] = "Transaksi/view_keluar";
 $route['Transaksi-keluar-add'] = "Transaksi/add_keluar";
 $route['Transaksi-keluar-save'] = "Transaksi/save_keluar";
+
 //action
 
 $route['Transaksi-keluar-accept/(:any)'] = "Transaksi/accept/$1";
 $route['Transaksi-keluar-reject/(:any)'] = "Transaksi/reject/$1";
-
+$route['Transaksi-keluar-delete/(:any)'] = "Transaksi/delete/$1";
 
 //laporan
 $route['Laporan-barang-masuk'] = "Laporan/barang_masuk";

@@ -16,29 +16,38 @@
 			<!-- Circle Buttons -->
 			<div class="card shadow mb-12">
 				<div class="card-body">
-					<form method="post" action="<?=base_url('Transaksi-keluar-save')?>" autocomplete="off">
+					<form method="post" action="<?= base_url('Transaksi-keluar-save') ?>" autocomplete="off">
 						<div class="form-group col-lg-12">
 							<label>Tanggal *</label>
-                            <?php 
-                                $date = date("mm/dd/yyyy");
-                            
-                            ?>
-							<input type="date" name="tanggal" class="form-control" >
+							<?php
+							$date = date("mm/dd/yyyy");
+
+							?>
+							<input type="date" name="tanggal" class="form-control">
 						</div>
 						<div class="form-group col-lg-12">
 							<label>Nama Barang *</label>
 							<select name="id_barang" class="form-control js-single" required autofocus>
-								<?php foreach($barang as $row)  
-                                {  
-                                    echo($row);                
-                                }  
-                                ?>
+								<?php foreach ($barang as $row) {
+									echo ($row);
+								}
+								?>
 							</select>
 						</div>
 
 						<div class="form-group col-lg-12">
 							<label>Jumlah Barang Keluar *</label>
-							<input type="number" name="jumlah_keluar" class="form-control" >
+							<input type="number" name="jumlah_keluar" class="form-control">
+						</div>
+
+						<div class="form-group col-lg-12">
+							<label>Nama Petugas *</label>
+
+							<select name="pk_petugas_id" class=" form-control">
+								<?php foreach ($petugas as $p) : ?>
+									<option value="<?= $p->pk_petugas_id; ?>"><?= $p->nama_petugas; ?></option>
+								<?php endforeach ?>
+							</select>
 						</div>
 
 						<div class="form-group col-lg-6">

@@ -1,9 +1,7 @@
 <div class="container-fluid">
 	<div class="alert alert-success" role="alert">
 		<p>
-			Selamat Datang <strong><?php echo $this->session->userdata['username']; ?></strong> di Aplikasi Inventory
-			Gudang Toko <i> Dunia
-				Percetakan</i>
+			Selamat Datang <strong><?php echo $this->session->userdata['username']; ?></strong> di Aplikasi Stok Of Name<i> Cabang Bandung Barat!</i>
 		</p>
 	</div>
 
@@ -113,26 +111,27 @@
 					</thead>
 
 					<tbody>
-						<?php $no = 1; if (!empty($barang)) : ?>
-						<?php foreach ($barang as $row) :
-							
-							$stok = $row->stokbarang;
-							$keluar = $row->keluar;
-							$jumlah = $stok-$keluar;
+						<?php $no = 1;
+						if (!empty($barang)) : ?>
+							<?php foreach ($barang as $row) :
+
+								$stok = $row->stokbarang;
+								$keluar = $row->keluar;
+								$jumlah = $stok - $keluar;
 							?>
-						<tr>
-							<td><?php echo $no++; ?></td>
-							<td><?php echo $row->id_barang ?></td>
-							<td><?php echo $row->nama_barang ?></td>
-							<td><?php echo $row->jenis_barang ?></td>
-							<td><?php echo $jumlah ?></td>
-							<td><?php echo $row->satuan_barang ?></td>
-						</tr>
-						<?php endforeach ?>
-						<?php else: ?>
-						<tr>
-							<td colspan="9" align="center">Tidak Ada Data</td>
-						</tr>
+								<tr>
+									<td><?php echo $no++; ?></td>
+									<td><?php echo $row->id_barang ?></td>
+									<td><?php echo $row->nama_barang ?></td>
+									<td><?php echo $row->jenis_barang ?></td>
+									<td><?php echo $jumlah ?></td>
+									<td><?php echo $row->satuan_barang ?></td>
+								</tr>
+							<?php endforeach ?>
+						<?php else : ?>
+							<tr>
+								<td colspan="9" align="center">Tidak Ada Data</td>
+							</tr>
 						<?php endif ?>
 					</tbody>
 				</table>
@@ -158,8 +157,7 @@
 </a>
 
 <!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -171,28 +169,28 @@
 			<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-				<a class="btn btn-primary" href="<?php echo base_url('auth/logout')?>">Logout</a>
+				<a class="btn btn-primary" href="<?php echo base_url('auth/logout') ?>">Logout</a>
 			</div>
 		</div>
 	</div>
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url()?>assets/vendor/jquery/jquery.min.js"></script>
-<script src="<?php echo base_url()?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="<?php echo base_url()?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="<?php echo base_url()?>assets/js/sb-admin-2.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/sb-admin-2.min.js"></script>
 
 <!-- Page level plugins -->
-<script src="<?php echo base_url()?>assets/vendor/chart.js/Chart.min.js"></script>
+<script src="<?php echo base_url() ?>assets/vendor/chart.js/Chart.min.js"></script>
 
 <!-- Page level custom scripts -->
-<script src="<?php echo base_url()?>assets/js/demo/chart-area-demo.js"></script>
-<script src="<?php echo base_url()?>assets/js/demo/chart-pie-demo.js"></script>
+<script src="<?php echo base_url() ?>assets/js/demo/chart-area-demo.js"></script>
+<script src="<?php echo base_url() ?>assets/js/demo/chart-pie-demo.js"></script>
 
 </body>
 
