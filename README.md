@@ -14,8 +14,6 @@ Fitur :
 - tambah user/admin.
 
 More info :
-- email : diszaid@gmail.com
- 
 
 Berikut adalah sebagian screenshot tampilan nya:
 
