@@ -55,6 +55,7 @@
 								<i class="fa fa-pencil"></i> Simpan</button>
 							<button type="reset" class="btn btn-info">Reset</button>
 						</div>
+					</form>
 				</div>
 			</div>
 		</div>
