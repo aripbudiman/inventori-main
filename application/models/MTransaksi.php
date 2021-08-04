@@ -15,9 +15,11 @@ class MTransaksi extends CI_Model
 
     function transaksi_keluar()
     {
-        $query = $this->db->query("SELECT tt.*, tb.nama_barang, tb.id_barang AS nomorbarang FROM tbl_transaksi_keluar AS tt
-        LEFT JOIN tbl_barang tb
-        ON tt.id_barang = tb.pk_barang_id");
+        $this->db->select('tbl_transaksi_keluar.*, tbl_barang.*, tbl_barang.id_barang AS nomorbarang , tbl_petugas.*');
+        $this->db->join('tbl_barang', 'tbl_barang.pk_barang_id = tbl_transaksi_keluar.id_barang');
+        $this->db->join('tbl_petugas', 'tbl_petugas.pk_petugas_id = tbl_transaksi_keluar.id_petugas');
+
+        $query = $this->db->get('tbl_transaksi_keluar');
         return $query->result();
     }
 
