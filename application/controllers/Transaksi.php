@@ -115,7 +115,7 @@ class Transaksi extends CI_Controller
 
   function save_keluar()
   {
-
+    $petugas = $this->input->post('nama_petugas');
     $tanggal  = $this->input->post('tanggal');
     $idbarang  = $this->input->post('id_barang');
     $jumlahkeluar  = $this->input->post('jumlah_keluar');
@@ -123,7 +123,8 @@ class Transaksi extends CI_Controller
     $data = array(
       'tanggal' => $tanggal,
       'id_barang' => $idbarang,
-      'jumlah_keluar' => $jumlahkeluar
+      'jumlah_keluar' => $jumlahkeluar,
+      'nama_petugas' => $petugas
     );
 
     $this->MTransaksi->input_data($data, 'tbl_transaksi_keluar');
